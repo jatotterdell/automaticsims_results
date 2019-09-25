@@ -52,7 +52,17 @@ st <- system.time(
       return_all = F, allocate_inactive = F, brar = T))
 )
 resall <- as_tibble(do.call(rbind, map(res, simplify)))
-saveRDS(resall, "out/noninferior/sce1_increase_seq.rds")
+rsaveRDS(resall, "out/noninferior/sce1_increase_seq.rds")
+
+st <- system.time(
+  res <- lapply(
+    1:10000, 
+    function(j) run_a_noninf_trial(
+      j, c(1.25, rep(1, 12)), 0.1, 
+      return_all = F, allocate_inactive = F, brar = T))
+)
+resall <- as_tibble(do.call(rbind, map(res, simplify)))
+rsaveRDS(resall, "out/noninferior/sce1_ctrl_best.rds")
 
 
 # 
