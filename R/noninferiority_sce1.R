@@ -11,7 +11,7 @@ st <- system.time(
   )
 
 resall <- as_tibble(do.call(rbind, map(res, simplify)))
-saveRDS(resall0, "out/noninferior/sce1_null.rds")
+saveRDS(resall, "out/noninferior/sce1_null.rds")
 
 st <- system.time(
   res <- lapply(
