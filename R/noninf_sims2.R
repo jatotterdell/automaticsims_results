@@ -38,7 +38,7 @@ for(a in 1:nrow(pars)) {
   assign(paste0("res", a),
          as_tibble(do.call(rbind, map(
            mclapply(
-             1:2,
+             1:1000,
              function(j) run_a_noninf_trial(
                j, c(1.25, rep(1, 12)), pars$delta[a],
                kappa_lo_0 = pars$kappa_lo[a], kappa_lo_1 = pars$kappa_lo[a],
