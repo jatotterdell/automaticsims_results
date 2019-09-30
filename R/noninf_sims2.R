@@ -37,16 +37,16 @@ pars$pars <- factor(as.character(1:nrow(pars)), levels = 1:nrow(pars))
 for(a in 1:nrow(pars)) {
   assign(paste0("res", a),
          as_tibble(do.call(rbind, map(
-           lapply(
-             1:1000,
+           mclapply(
+             1:2,
              function(j) run_a_noninf_trial(
                j, c(1.25, rep(1, 12)), pars$delta[a],
                kappa_lo_0 = pars$kappa_lo[a], kappa_lo_1 = pars$kappa_lo[a],
                kappa_hi_0 = pars$kappa_hi[a], kappa_hi_1 = pars$kappa_hi[a],
                kappa_no_0 = pars$kappa_no[a], kappa_no_1 = pars$kappa_no[a],
                ctrl_alloc = pars$alloc_ctrl[a],
-               return_all = F, allocate_inactive = F, brar = T)
-           ),
+               return_all = F, allocate_inactive = F, brar = T),
+           mc.cores = parallel::detectCores() - 1),
            simplify))))
 }
 
