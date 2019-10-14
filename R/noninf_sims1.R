@@ -3,7 +3,7 @@ library(automaticsims)
 library(tidyverse)
 
 pars <- expand.grid(
-  delta = c(0.05, 0.1, 0.15),
+  delta = c(0.0, 0.05, 0.1, 0.15),
   kappa_lo = c(0.01, 0.025),
   kappa_hi = c(0.75, 0.85),
   kappa_no = c(0.5, 0.6),

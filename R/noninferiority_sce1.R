@@ -2,6 +2,17 @@ library(parallel)
 library(automaticsims)
 library(tidyverse)
 
+cl <- makeCluster(4)
+clusterEvalQ(cl, library(automaticsims))
+st <- system.time(res <- parLapply(cl, 1:100,     
+  function(j) run_a_noninf_trial(
+    j, rep(1, 13), 0.1, 
+    kappa_lo_0 = 0.01, kappa_lo_1 = 0.01,
+    kappa_hi_0 = 0.8, kappa_hi_1 = 0.8,
+    return_all = F, allocate_inactive = F, brar = T)))
+stopCluster(cl)
+resall <- as_tibble(do.call(rbind, map(res, simplify)))
+
 st <- system.time(
   res <- lapply(
     1:1000, 
