@@ -4,9 +4,11 @@ library(tidyverse)
 
 pars <- expand.grid(
   delta = c(0.05, 0.1, 0.15),
-  kappa_lo = c(0.01, 0.025),
-  kappa_hi = c(0.75, 0.85),
-  kappa_no = c(0.5, 0.6),
+  kappa_act = c(0.01, 0.025),
+  kappa_sup = c(0.75, 0.85),
+  kappa_ctr = 0.95,
+  kappa_noninf = c(0.5, 0.6),
+  kappa_nonsup = 0.05,
   alloc_ctrl = c(1/13, 1/5)
 )
 pars$pars <- factor(as.character(1:nrow(pars)), levels = 1:nrow(pars))
@@ -18,9 +20,11 @@ for(a in 1:nrow(pars)) {
              1:1000,
              function(j) run_a_noninf_trial(
                j, c(1, 1.25, rep(1, 11)), pars$delta[a],
-               kappa_lo_0 = pars$kappa_lo[a], kappa_lo_1 = pars$kappa_lo[a],
-               kappa_hi_0 = pars$kappa_hi[a], kappa_hi_1 = pars$kappa_hi[a],
-               kappa_no_0 = pars$kappa_no[a], kappa_no_1 = pars$kappa_no[a],
+               kappa_act_0 = pars$kappa_act[a], kappa_act_1 = pars$kappa_act[a],
+               kappa_sup_0 = pars$kappa_sup[a], kappa_sup_1 = pars$kappa_sup[a],
+               kappa_ctr_0 = pars$kappa_ctr[a], kappa_ctr_1 = pars$kappa_ctr[a],
+               kappa_noninf_0 = pars$kappa_noninf[a], kappa_noninf_1 = pars$kappa_noninf[a],
+               kappa_nonsup_0 = pars$kappa_nonsup[a], kappa_nonsup_1 = pars$kappa_nonsup[a],
                ctrl_alloc = pars$alloc_ctrl[a],
                return_all = F, allocate_inactive = F, brar = T),
              mc.cores = parallel::detectCores() - 1),
@@ -40,9 +44,11 @@ for(a in 1:nrow(pars)) {
              1:1000,
              function(j) run_a_noninf_trial(
                j, c(1, 1.5, rep(1, 11)), pars$delta[a],
-               kappa_lo_0 = pars$kappa_lo[a], kappa_lo_1 = pars$kappa_lo[a],
-               kappa_hi_0 = pars$kappa_hi[a], kappa_hi_1 = pars$kappa_hi[a],
-               kappa_no_0 = pars$kappa_no[a], kappa_no_1 = pars$kappa_no[a],
+               kappa_act_0 = pars$kappa_act[a], kappa_act_1 = pars$kappa_act[a],
+               kappa_sup_0 = pars$kappa_sup[a], kappa_sup_1 = pars$kappa_sup[a],
+               kappa_ctr_0 = pars$kappa_ctr[a], kappa_ctr_1 = pars$kappa_ctr[a],
+               kappa_noninf_0 = pars$kappa_noninf[a], kappa_noninf_1 = pars$kappa_noninf[a],
+               kappa_nonsup_0 = pars$kappa_nonsup[a], kappa_nonsup_1 = pars$kappa_nonsup[a],
                ctrl_alloc = pars$alloc_ctrl[a],
                return_all = F, allocate_inactive = F, brar = T),
              mc.cores = parallel::detectCores() - 1),
