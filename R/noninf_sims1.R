@@ -40,7 +40,7 @@ for(a in 1:nrow(pars)) {
   assign(paste0("res", a), 
          as_tibble(do.call(rbind, map(
            mclapply(
-             1:1000,     
+             1:100,     
              function(j) run_a_noninf_trial(
                j, rep(1, 13), pars$delta[a], 
                kappa_act_0 = pars$kappa_act[a], kappa_act_1 = pars$kappa_act[a],
@@ -66,7 +66,7 @@ for(a in 1:nrow(pars)) {
   assign(paste0("res", a), 
          as_tibble(do.call(rbind, map(
            mclapply(
-             1:1000,     
+             1:100,     
              function(j) run_a_noninf_trial(
                j, rep(0, 13), pars$delta[a], 
                kappa_act_0 = pars$kappa_act[a], kappa_act_1 = pars$kappa_act[a],
