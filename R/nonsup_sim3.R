@@ -9,7 +9,7 @@ pars <- expand.grid(
   kappa_sup = c(0.75),
   kappa_ctr = 0.95,
   kappa_nonsup = c(0.05, 0.1),
-  kappa_noninf = c(0.5, 0.6),
+  kappa_noninf = 1,
   kappa_nonsup = 0.05,
   alloc_ctrl = c(1/13, 1/5)
 )
