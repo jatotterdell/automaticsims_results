@@ -21,7 +21,7 @@ for(a in 1:nrow(pars)) {
            mclapply(
              1:1000,
              function(j) run_a_noninf_trial(
-               j, rep(0, 13)), 
+               j, rep(0, 13), 
                delta_sup = pars$delta_sup[a],
                delta_noninf = pars$delta_noninf[a],
                kappa_act_0 = pars$kappa_act[a], kappa_act_1 = pars$kappa_act[a],
@@ -32,7 +32,7 @@ for(a in 1:nrow(pars)) {
                ctrl_alloc = pars$alloc_ctrl[a],
                return_all = F, allocate_inactive = F, brar = T),
              mc.cores = parallel::detectCores() - 1),
-           simplify)))
+           simplify))))
 }
 
 res <- bind_rows(lapply(1:nrow(pars), function(x) get(paste0("res", x))), .id = "pars")
