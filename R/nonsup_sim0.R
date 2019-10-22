@@ -21,7 +21,7 @@ for(a in 1:nrow(pars)) {
            mclapply(
              1:1000,
              function(j) run_a_noninf_trial(
-               j, c(1, rep(1.25, 1), rep(1, 11)), 
+               j, rep(1, 13)), 
                delta_sup = pars$delta_sup[a],
                delta_noninf = pars$delta_noninf[a],
                kappa_act_0 = pars$kappa_act[a], kappa_act_1 = pars$kappa_act[a],
@@ -46,7 +46,7 @@ for(a in 1:nrow(pars)) {
            mclapply(
              1:1000,
              function(j) run_a_noninf_trial(
-               j, c(1, rep(1.5, 1), rep(1, 11)),
+               j, c(1, rep(1, 13)),
                delta_sup = pars$delta_sup[a],
                delta_noninf = pars$delta_noninf[a],
                kappa_act_0 = pars$kappa_act[a], kappa_act_1 = pars$kappa_act[a],
