@@ -3,13 +3,13 @@ library(automaticsims)
 library(tidyverse)
 
 pars <- expand.grid(
-  delta_sup = c(0.1),
-  delta_noninf = 0,
-  kappa_act = c(0.01),
-  kappa_sup = c(0.75),
+  delta_sup = 0.1,
+  delta_noninf = 0.1,
+  kappa_act = 0.01,
+  kappa_sup = 0.75,
   kappa_ctr = 0.95,
   kappa_nonsup = c(0.05, 0.1),
-  kappa_noninf = 1,
+  kappa_noninf = c(0.6, 1),
   kappa_nonsup = 0.05,
   alloc_ctrl = c(1/13, 1/5)
 )
