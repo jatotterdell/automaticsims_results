@@ -37,7 +37,7 @@ for(a in 1:nrow(pars)) {
 
 res <- bind_rows(lapply(1:nrow(pars), function(x) get(paste0("res", x))), .id = "pars")
 rm(list = paste0("res", 1:nrow(pars)))
-saveRDS(res, "out/nonsuperiority/mu_one_sup1.rds")
+saveRDS(res, "out/nonsuperiority/mu_none_sup1.rds")
 
 
 for(a in 1:nrow(pars)) {
@@ -62,4 +62,4 @@ for(a in 1:nrow(pars)) {
 
 res <- bind_rows(lapply(1:nrow(pars), function(x) get(paste0("res", x))), .id = "pars")
 rm(list = paste0("res", 1:nrow(pars)))
-saveRDS(res, "out/nonsuperiority/mu_one_sup2.rds")
+saveRDS(res, "out/nonsuperiority/mu_none_sup2.rds")
