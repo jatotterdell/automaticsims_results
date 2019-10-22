@@ -16,9 +16,6 @@ pars <- expand.grid(
 )
 pars$pars <- factor(as.character(1:nrow(pars)), levels = 1:nrow(pars))
 
-)
-pars$pars <- factor(as.character(1:nrow(pars)), levels = 1:nrow(pars))
-
 for(a in 1:nrow(pars)) {
   assign(paste0("res", a),
          as_tibble(do.call(rbind, map(
@@ -54,7 +51,7 @@ for(a in 1:nrow(pars)) {
                delta_sup = pars$delta_sup[a],
                delta_noninf = pars$delta_noninf[a],
                kappa_act_0 = pars$kappa_act[a], kappa_act_1 = pars$kappa_act[a],
-               kappa_sup_0 = pars$kappa_sup[a], kappa_sup_1 = pars$kappa_sup[a],
+               kappa_sup_0 = pars$kappa_sup_0[a], kappa_sup_1 = pars$kappa_sup_1[a],
                kappa_ctr_0 = pars$kappa_ctr[a], kappa_ctr_1 = pars$kappa_ctr[a],
                kappa_noninf_0 = pars$kappa_noninf[a], kappa_noninf_1 = pars$kappa_noninf[a],
                kappa_nonsup_0 = pars$kappa_nonsup[a], kappa_nonsup_1 = pars$kappa_nonsup[a],
@@ -80,7 +77,7 @@ for(a in 1:nrow(pars)) {
                delta_sup = pars$delta_sup[a],
                delta_noninf = pars$delta_noninf[a],
                kappa_act_0 = pars$kappa_act[a], kappa_act_1 = pars$kappa_act[a],
-               kappa_sup_0 = pars$kappa_sup[a], kappa_sup_1 = pars$kappa_sup[a],
+               kappa_sup_0 = pars$kappa_sup_0[a], kappa_sup_1 = pars$kappa_sup_1[a],
                kappa_ctr_0 = pars$kappa_ctr[a], kappa_ctr_1 = pars$kappa_ctr[a],
                kappa_noninf_0 = pars$kappa_noninf[a], kappa_noninf_1 = pars$kappa_noninf[a],
                kappa_nonsup_0 = pars$kappa_nonsup[a], kappa_nonsup_1 = pars$kappa_nonsup[a],
