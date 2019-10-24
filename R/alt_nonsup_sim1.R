@@ -73,7 +73,7 @@ for(a in 1:nrow(pars)) {
          as_tibble(do.call(rbind, map(
            mclapply(
              1:1000,
-             function(j) run_a_noninf_trial(
+             function(j) run_a_noninf_trial_alt(
                j, c(1, rep(1.5, 1), rep(1, 11)),
                delta_sup = pars$delta_sup[a],
                delta_noninf = pars$delta_noninf[a],
