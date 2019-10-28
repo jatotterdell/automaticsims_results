@@ -11,7 +11,6 @@ pars <- expand.grid(
   kappa_ctr = 0.95,
   kappa_nonsup = c(0.05, 0.1),
   kappa_noninf = c(0.5, 0.6),
-  kappa_nonsup = 0.05,
   alloc_ctrl = 1/13
 )
 pars$pars <- factor(as.character(1:nrow(pars)), levels = 1:nrow(pars))
