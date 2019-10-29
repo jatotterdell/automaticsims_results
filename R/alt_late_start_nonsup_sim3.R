@@ -32,7 +32,7 @@ for(a in 1:nrow(pars)) {
                kappa_noninf_0 = pars$kappa_noninf[a], kappa_noninf_1 = pars$kappa_noninf[a],
                kappa_nonsup_0 = pars$kappa_nonsup[a], kappa_nonsup_1 = pars$kappa_nonsup[a],
                ctrl_alloc = pars$alloc_ctrl[a],
-               return_all = F, allocate_inactive = F, brar = T),
+               return_all = F, allocate_inactive = F, brar = T, Nseq = seq(2500, 10000, 500)),
              mc.cores = parallel::detectCores() - 1),
            simplify))))
 }
