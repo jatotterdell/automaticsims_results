@@ -4,7 +4,6 @@ library(tidyverse)
 
 pars <- expand.grid(
   delta_sup = c(0.05, 0.1),
-  delta_noninf = 0.1,
   kappa_act = c(0.01, 0.005),
   kappa_sup_0 = c(0.75, 0.85),
   kappa_sup_1 = 0.75,
@@ -24,7 +23,7 @@ for(a in 1:nrow(pars)) {
              function(j) run_a_noninf_trial_alt(
                j, c(1, rep(1.1, 1), rep(1, 11)), 
                delta_sup = pars$delta_sup[a],
-               delta_noninf = pars$delta_noninf[a],
+               delta_noninf = pars$delta_sup[a],
                kappa_act_0 = pars$kappa_act[a], kappa_act_1 = pars$kappa_act[a],
                kappa_sup_0 = pars$kappa_sup_0[a], kappa_sup_1 = pars$kappa_sup_1[a],
                kappa_ctr_0 = pars$kappa_ctr[a], kappa_ctr_1 = pars$kappa_ctr[a],
@@ -49,7 +48,7 @@ for(a in 1:nrow(pars)) {
              function(j) run_a_noninf_trial_alt(
                j, c(1, rep(1.25, 1), rep(1, 11)), 
                delta_sup = pars$delta_sup[a],
-               delta_noninf = pars$delta_noninf[a],
+               delta_noninf = pars$delta_sup[a],
                kappa_act_0 = pars$kappa_act[a], kappa_act_1 = pars$kappa_act[a],
                kappa_sup_0 = pars$kappa_sup_0[a], kappa_sup_1 = pars$kappa_sup_1[a],
                kappa_ctr_0 = pars$kappa_ctr[a], kappa_ctr_1 = pars$kappa_ctr[a],
@@ -75,7 +74,7 @@ for(a in 1:nrow(pars)) {
              function(j) run_a_noninf_trial_alt(
                j, c(1, rep(1.5, 1), rep(1, 11)),
                delta_sup = pars$delta_sup[a],
-               delta_noninf = pars$delta_noninf[a],
+               delta_noninf = pars$delta_sup[a],
                kappa_act_0 = pars$kappa_act[a], kappa_act_1 = pars$kappa_act[a],
                kappa_sup_0 = pars$kappa_sup_0[a], kappa_sup_1 = pars$kappa_sup_1[a],
                kappa_ctr_0 = pars$kappa_ctr[a], kappa_ctr_1 = pars$kappa_ctr[a],

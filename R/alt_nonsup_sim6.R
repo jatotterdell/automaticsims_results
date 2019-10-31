@@ -14,7 +14,7 @@ pars <- expand.grid(
 )
 pars$pars <- factor(as.character(1:nrow(pars)), levels = 1:nrow(pars))
 
-n_sup <- 3
+n_sup <- 6
 
 for(a in 1:nrow(pars)) {
   assign(paste0("res", a),
@@ -39,7 +39,7 @@ for(a in 1:nrow(pars)) {
 
 res <- bind_rows(lapply(1:nrow(pars), function(x) get(paste0("res", x))), .id = "pars")
 rm(list = paste0("res", 1:nrow(pars)))
-saveRDS(res, "out/nonsuperiority/alt_mu_three_sup0.rds")
+saveRDS(res, "out/nonsuperiority/alt_mu_six_sup0.rds")
 
 for(a in 1:nrow(pars)) {
   assign(paste0("res", a),
@@ -64,7 +64,7 @@ for(a in 1:nrow(pars)) {
 
 res <- bind_rows(lapply(1:nrow(pars), function(x) get(paste0("res", x))), .id = "pars")
 rm(list = paste0("res", 1:nrow(pars)))
-saveRDS(res, "out/nonsuperiority/alt_mu_three_sup1.rds")
+saveRDS(res, "out/nonsuperiority/alt_mu_six_sup1.rds")
 
 
 for(a in 1:nrow(pars)) {
@@ -90,4 +90,4 @@ for(a in 1:nrow(pars)) {
 
 res <- bind_rows(lapply(1:nrow(pars), function(x) get(paste0("res", x))), .id = "pars")
 rm(list = paste0("res", 1:nrow(pars)))
-saveRDS(res, "out/nonsuperiority/alt_mu_three_sup2.rds")
+saveRDS(res, "out/nonsuperiority/alt_mu_six_sup2.rds")
