@@ -2,6 +2,7 @@ library(parallel)
 library(automaticsims)
 library(tidyverse)
 
+nsims <- 10000
 nsup <- 0
 mu1 <- 1.25
 mu2 <- 1.5
@@ -24,7 +25,7 @@ for(a in 1:nrow(pars)) {
   assign(paste0("res", a),
          as_tibble(do.call(rbind, map(
            mclapply(
-             1:5,
+             1:nsims,
              function(j) run_a_noninf_trial_alt(
                j, c(rep(0, 13 - nsup), rep(mu1, nsup)), 
                delta_sup = pars$delta_sup[a],
@@ -49,7 +50,7 @@ for(a in 1:nrow(pars)) {
   assign(paste0("res", a),
        as_tibble(do.call(rbind, map(
          mclapply(
-           1:4,
+           1:nsims,
            function(j) run_a_noninf_trial_alt(
              j, c(rep(1, 13 - nsup), rep(mu2, nsup)), 
              delta_sup = pars$delta_sup[a],
