@@ -3,14 +3,14 @@ library(automaticsims)
 library(tidyverse)
 
 nsims <- 10000
-nsup <- 0
+nsup <- 1
 mu1 <- 1.25
 mu2 <- 1.5
 
 pars <- expand.grid(
   delta_sup = 0.1,
   kappa_act = 0.01,
-  kappa_sup_0 = c(0.85, 0.95),
+  kappa_sup_0 = c(0.75, 0.85, 0.95),
   kappa_sup_1 = 0.75,
   kappa_ctr = 0.95,
   kappa_nonsup_0 = c(0.05, 0.01),
